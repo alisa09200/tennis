@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reservations</h1>
+<h1>予約済みテニスコート一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Start time</th>
+      <th>地域</th>
+      <th>レベル</th>
+      <th>日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,8 +16,9 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.name %></td>
-        <td><%= reservation.start_time %></td>
-        <td><%= link_to 'Show', reservation %></td>
+        <td><%= reservation.level %></td>
+        <td><%= reservation.start_time.strftime("%Y-%m-%d %H:%M") %>〜</td>
+        <td><%= link_to '詳細＆参加申込', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -37,4 +39,5 @@
   <% end %>
 <% end %>
 
-<%= link_to 'New Reservation', new_reservation_path %>
+<%= link_to 'テニス仲間募集登録', new_reservation_path %>
+👈テニスコート予約済み方は、こちらでお仲間を募集できます！！
