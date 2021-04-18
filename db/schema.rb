@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_065639) do
+ActiveRecord::Schema.define(version: 2021_04_18_091250) do
 
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "end_time"
+    t.integer "min"
+    t.integer "max"
+    t.text "text"
+    t.string "level"
+    t.text "area"
+    t.integer "city_id"
   end
 
 end
