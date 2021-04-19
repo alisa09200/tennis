@@ -1,14 +1,66 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>テニスコート予約者名:</strong>
   <%= @reservation.name %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @reservation.start_time %>
+  <strong>レベル:</strong>
+  <%= @reservation.level %>
 </p>
+
+<p>
+  <strong>地域:</strong>
+  <%= @reservation.city.name %>
+</p>
+
+<p>
+  <strong>場所:</strong>
+  <%= @reservation.area %>
+</p>
+
+<p>
+  <strong>集合時間:</strong>
+  <%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>解散時間:</strong>
+  <%= @reservation.end_time.strftime("%Y-%m-%d %H:%M") %>
+<p>
+
+<P>
+  <strong>最低参加人数:</strong>
+  <%= @reservation.min %>
+  ＊人数が足りない場合はキャンセルの場合があります
+</p>
+
+<p>
+  <strong>max Paticipant:</strong>
+  <%= @reservation.max %>
+</p>
+
+<p>
+  <strong>備考</strong>
+  <%= @reservation.text %>
+
+<div class="field">
+  <%= form_with(model: [@reservation, @participant], local: true) do |form| %>
+    <%= form.text_field :name, placeholder: "名前をご入力ください" %>
+    <%= form.submit "参加する" %>
+  <% end %>
+</div>
+
+<div class="participants">
+  <h4><参加者一覧></h4>
+  <% @participants.each do |participant| %>
+    <p>
+      <%= participant.name %>
+    </p>
+  <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
