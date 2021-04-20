@@ -12,13 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :お名前 %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
+    <%= form.label :レベル %>
+    <%= form.select :level, ['初級', "中級","上級"] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :地域 %>
+    <%= form.collection_select(:city_id, City.all, :id, :name, {}, {class:"city-select"}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :集合場所 %>
+    <%= form.text_area :area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :集合時間 %>
     <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :解散時間 %>
+    <%= form.datetime_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :最低参加人数　何人から？ %>
+    <%= form.select :min, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :最高参加人数　何人まで？ %>
+    <%= form.select :max, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :備考 %>
+    <%= form.text_area :text %>
   </div>
 
   <div class="actions">
