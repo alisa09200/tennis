@@ -8,6 +8,9 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1 or /reservations/1.json
   def show
+    @participant = Participant.new
+    #@participants = Participant.all
+    @participants = @reservation.participants.all
   end
 
   # GET /reservations/new
