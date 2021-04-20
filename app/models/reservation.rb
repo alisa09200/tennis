@@ -1,4 +1,5 @@
 class Reservation < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :participants
   belongs_to :city
 
