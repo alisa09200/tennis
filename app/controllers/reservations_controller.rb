@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
+  before_action :move_to_index, except: [:index, :show]
 
   # GET /reservations or /reservations.json
   def index
@@ -68,5 +69,11 @@ class ReservationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def reservation_params
       params.require(:reservation).permit(:name, :start_time, :end_time, :min, :max, :level, :text, :area, :city_id)
+    end
+
+    def move_to_index
+      unless user_signed_in?
+        redirect_to action: :index
+      end
     end
 end
