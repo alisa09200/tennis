@@ -1,5 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<header class="header">
+  <h1 class="header_bar">
+    <%= link_to "TENNIS", root_path, data: {"turbolinks" => false} %>
+  </h1>
+  <nav class="pc-nav">
+    <ul class="nav_bar">
+      <% if user_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+        <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+
 <h1>予約済みテニスコート一覧</h1>
 
 <table>
