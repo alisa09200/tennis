@@ -10,21 +10,6 @@
   </head>
 
   <body>
-    <header>
-      <h1>
-        <a href="/">TENNIS</a>
-      </h1>
-      <nav class="pc-nav">
-        <ul>
-          <% if user_signed_in? %>
-            <li><a href="#">ログアウト</a></li>
-          <% else %>
-            <li><a href="#">ログイン</a></li>
-            <li><a href="#">新規登録</a></li>
-          <% end %>
-        </ul>
-      </nav>
-    </header>
     <%= yield %>
   </body>
 </html>
