@@ -31,7 +31,7 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.name %></td>
+        <td><%= reservation.city.name %></td>
         <td><%= reservation.level %></td>
         <td><%= reservation.start_time.strftime("%Y-%m-%d %H:%M") %>〜</td>
         <td><%= link_to '詳細＆参加申込', reservation %></td>
@@ -49,8 +49,8 @@
 
   <% reservations.each do |reservation| %>
     <div>
-      <%= reservation.start_time.hour %>:<%= reservation.start_time.min %>
-      <%= reservation.name %>
+      <%= reservation.start_time.strftime("%H:%M") %>
+      <%= link_to reservation.city.name, reservation %>
     </div>
   <% end %>
 <% end %>

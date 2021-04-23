@@ -2,7 +2,7 @@
 
 <p>
   <strong>テニスコート予約者名:</strong>
-  <%= @reservation.name %>
+  <%= @reservation.user.nickname %>
 </p>
 
 <p>
@@ -37,29 +37,58 @@
 </p>
 
 <p>
-  <strong>max Paticipant:</strong>
+  <strong>最大参加人数:</strong>
   <%= @reservation.max %>
 </p>
 
 <p>
   <strong>備考</strong>
   <%= @reservation.text %>
+</p>
 
-<div class="field">
-  <%= form_with(model: [@reservation, @participant], local: true) do |form| %>
-    <%= form.text_field :name, placeholder: "名前をご入力ください" %>
-    <%= form.submit "参加する" %>
-  <% end %>
-</div>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@reservation, @participant], local: true) do |form| %>
+        <%= form.text_field :text, placeholder: "参加するにあたり一言" %>
+        <%= form.submit "参加する" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ 参加するには新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
+    <div class="participants">
+      <h4>＜参加者一覧＞</h4>
+      <% @participants.each do |participant| %>
+        <p>
+          <strong><%= participant.user.nickname %>：<%= participant.text %></strong>
+        </p>
+      <% end %>
+    </div>
+  </div>
 
-<div class="participants">
-  <h4><参加者一覧></h4>
-  <% @participants.each do |participant| %>
-    <p>
-      <%= participant.name %>
-    </p>
-  <% end %>
-</div>
+
+
+
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@reservation, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= comment.user.nickname %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |

@@ -12,6 +12,8 @@ class ReservationsController < ApplicationController
     @participant = Participant.new
     #@participants = Participant.all
     @participants = @reservation.participants.all
+    @comment = Comment.new
+    @comments = @reservation.comments.all
   end
 
   # GET /reservations/new
@@ -68,7 +70,7 @@ class ReservationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:name, :start_time, :end_time, :min, :max, :level, :text, :area, :city_id)
+      params.require(:reservation).permit(:start_time, :end_time, :min, :max, :level, :text, :area, :city_id).merge(user_id: current_user.id)
     end
 
     def move_to_index
