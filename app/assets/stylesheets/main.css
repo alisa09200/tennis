@@ -94,6 +94,10 @@ button {
   list-style: none;
 }
 
+.image_tag p {
+  color: black;
+}
+
 .page-main > aside button {
   background-color: rgba(0,0,0,0.8);
   display: block;

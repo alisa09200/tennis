@@ -12,14 +12,14 @@
 <body>
 
 <header class="hero-header">
-    <div class="inner">
-        <div class="slideshow">
-            <img src="/assets/slide-1.jpg" alt="" width="1500" height="465">
-            <img src="/assets/slide-2.jpg" alt="" width="1500" height="465">
-            <img src="/assets/slide-3.jpg" alt="" width="1500" height="465">
-            <img src="/assets/slide-4.jpg" alt="" width="1500" height="465">
-        </div>
+  <div class="inner">
+    <div class="slideshow">
+      <img src="/assets/slide-1.jpg" alt="" width="1500" height="465">
+      <img src="/assets/slide-2.jpg" alt="" width="1500" height="465">
+      <img src="/assets/slide-3.jpg" alt="" width="1500" height="465">
+      <img src="/assets/slide-4.jpg" alt="" width="1500" height="465">
     </div>
+  </div>
 </header>
 
 </body>
@@ -44,14 +44,23 @@
 </header>
 
 <div class="page-main" role="main">
-    <aside>
-        <ul>
-            <li><%= link_to image_tag("/assets/01_aside.png", width: '200'), explanations_index_path %></a></li>
-            <li><%= link_to image_tag("/assets/02_aside.png", width: '200'), new_reservation_path %></a></li>
-            <li><a href="#"><img src="/assets/03_aside.png"></a></li>
-        </ul>
-        <button><img src="/assets/btn_open.png"></button>
-    </aside>
+  <aside>
+    <ul>
+      <div class="image_tag">
+        <li><%= link_to image_tag("/assets/01_aside.png", width: '200'), explanations_index_path %></li>
+        <p>説明</p>
+      </div>
+      <div class="image_tag">
+        <li><%= link_to image_tag("/assets/02_aside.png", width: '200'), reservations_path %></li>
+        <p>参加</p>
+      </div>
+      <div class="image_tag">
+        <li><%= link_to image_tag("/assets/03_aside.png", width: '200'), new_reservation_path %></li>
+        <p>イベント登録</p>
+      </div>
+    </ul>
+    <button><img src="/assets/btn_open.png"></button>
+  </aside>
 </div>
 
 <!--footer class="page-footer" role="contentinfo"-->
