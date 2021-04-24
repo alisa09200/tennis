@@ -21,6 +21,14 @@ h1.devise {
   border-color: white;
 }
 
+.event_border {
+  justify-content: center;
+  border: double 5px;
+  margin: 50px;
+  padding: 20px 80px;
+  border-color: white;
+}
+
 .field {
   justify-content: center;
   color: white;
