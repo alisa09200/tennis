@@ -57,4 +57,9 @@
   <% end %>
 <% end %>
 
-<%= link_to '[イベント登録]', new_reservation_path %>
+<br>
+<% if user_signed_in? %>
+  <%= link_to '[イベント登録]', new_reservation_path %>
+<% else %>
+  <strong>※※※イベントの登録には新規登録/ログインが必要です※※※</strong>
+<% end %>
