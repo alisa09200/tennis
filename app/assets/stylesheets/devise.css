@@ -1,0 +1,28 @@
+.devise_img {
+  background-image: url(main_visual.jpg);
+}
+
+h1.devise {
+  padding-top: 60px;
+  display: flex;
+  color: white;
+}
+
+.devise_box {
+  display: flex;
+  justify-content: center;
+}
+
+.devise_border {
+  justify-content: center;
+  border: double 5px;
+  margin: 50px;
+  padding: 80px;
+  border-color: white;
+}
+
+.field {
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+} 
