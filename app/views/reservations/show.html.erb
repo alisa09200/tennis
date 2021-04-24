@@ -1,50 +1,54 @@
 <p id="notice"><%= notice %></p>
+<div class="devise_img">
+  <div class="devise_box">
+    <div class="event_border">
+      <div class="event_field">
+        <strong>イベント登録者名:</strong>
+        <%= @reservation.user.nickname %>
+      </div><br>
 
-<p>
-  <strong>テニスコート予約者名:</strong>
-  <%= @reservation.user.nickname %>
-</p>
+      <div class="event_field">
+        <strong>レベル:</strong>
+        <%= @reservation.level %>
+      </div><br>
 
-<p>
-  <strong>レベル:</strong>
-  <%= @reservation.level %>
-</p>
+      <div class="event_field">
+        <strong>地域:</strong>
+        <%= @reservation.city.name %>
+      </div><br>
 
-<p>
-  <strong>地域:</strong>
-  <%= @reservation.city.name %>
-</p>
+      <div class="event_field">
+        <strong>場所:</strong>
+        <%= @reservation.area %>
+      </div><br>
 
-<p>
-  <strong>場所:</strong>
-  <%= @reservation.area %>
-</p>
+      <div class="event_field">
+        <strong>集合時間:</strong>
+        <%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %>
+      </div><br>
 
-<p>
-  <strong>集合時間:</strong>
-  <%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
+      <div class="event_field">
+        <strong>解散時間:</strong>
+        <%= @reservation.end_time.strftime("%Y-%m-%d %H:%M") %>
+      </div><br>
 
-<p>
-  <strong>解散時間:</strong>
-  <%= @reservation.end_time.strftime("%Y-%m-%d %H:%M") %>
-<p>
+      <div class="event_field">
+        <strong>最低参加人数:</strong>
+        <%= @reservation.min %>
+        ＊人数が足りない場合はキャンセルの場合があります
+      </div><br>
 
-<P>
-  <strong>最低参加人数:</strong>
-  <%= @reservation.min %>
-  ＊人数が足りない場合はキャンセルの場合があります
-</p>
+      <div class="event_field">
+        <strong>最大参加人数:</strong>
+        <%= @reservation.max %>
+      </div><br>
 
-<p>
-  <strong>最大参加人数:</strong>
-  <%= @reservation.max %>
-</p>
-
-<p>
-  <strong>備考</strong>
-  <%= @reservation.text %>
-</p>
+      <div class="event_field">
+        <strong>備考:</strong>
+        <%= @reservation.text %>
+      </div><br>
+    </div>
+  </div>
 
   <div class="container">
     <% if user_signed_in? %>
@@ -57,7 +61,7 @@
       </strong>
     <% end %>
     <div class="participants">
-      <h4>＜参加者一覧＞</h4>
+      <h4 class="par">＜参加者一覧＞</h4>
       <% @participants.each do |participant| %>
         <p>
           <strong><%= participant.user.nickname %>：<%= participant.text %></strong>
@@ -65,6 +69,7 @@
       <% end %>
     </div>
   </div>
+  
 
 
 
@@ -93,3 +98,5 @@
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+
+
