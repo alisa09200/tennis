@@ -1,17 +1,44 @@
-<div class="image">
-  <img src="/assets/haikei_image.jpg" width="1300" height="900">
-</div>
-  <h2 class="spa_ttl">アプリの使い方</h2><br>
-  <h3 class="price_ttl">
-    テニスコートを予約して、一緒にテニスをする仲間を探す
-  </h3>
-  <br>
-  ご自身で区営のテニスコートなどを予約していただきます。<br>
-  予約ができたらトップページまたはカレンダー画面下の「テニス仲間募集登録」をクリックして各項目ご記入ください。<br>
-  カレンダー画面の「詳細＆参加申し込み」をクリックしていただくと参加する人が集まったか確認することができます。<br>
-  <br>
-  <br>
-  <h3 class="price_ttl">
-    参加する
-  </h3>
-</div>
+<header class="header">
+  <h1 class="header_bar">
+    <%= link_to "TENNIS", root_path, data: {"turbolinks" => false} %>
+  </h1>
+  <nav class="pc-nav">
+    <ul class="nav_bar">
+      <% if user_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+        <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+
+
+<br>
+<h1 class="exp">アプリの使い方</h1><br><br>
+  <div class="exp_border">
+    <h2 class="exp_pati">
+      イベントに参加する
+    </h2><br>
+    <p class="exp_pati">
+      カレンダーページの[詳細＆参加申込]ボタンをクリックし、一言記入して[参加する]ボタンをクリックすると参加することができます。
+    </p><br>
+    <p class="exp_pati">
+      <%= link_to "[イベントに参加]", reservations_path %><br>
+    </p>
+    <br>
+  </div>
+  <br><br><br><br>
+  <div class="exp_border">
+    <h2 class="exp_pati">
+      イベントを登録する
+    </h2><br>
+    <p class="exp_pati">
+      ご自身で区営のテニスコートなどを予約していただき、イベント登録ページで練習仲間を募集することができます。
+    </p><br>
+    <p class="exp_pati">
+      <%= link_to "[イベントを登録]", new_reservation_path %><br>
+    </p>
+    <br>
+  </div>
