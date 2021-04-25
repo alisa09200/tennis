@@ -1,10 +1,16 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :move_to_index, except: [:index, :show]
+  before_action :search_reservation, only: [:index, :search]
 
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
+    set_reservation_column
+  end
+
+  def search
+    @results = @p.result.all
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -77,5 +83,15 @@ class ReservationsController < ApplicationController
       unless user_signed_in?
         redirect_to action: :index
       end
+    end
+
+    def search_reservation
+      @p = Reservation.ransack(params[:q]) 
+    end
+
+    def set_reservation_column
+      @reservation_area = Reservation.select("area").distinct
+      @reservation_level = Reservation.select("level").distinct
+      @reservation_start_time = Reservation.select("start_time").distinct
     end
 end
