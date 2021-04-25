@@ -16,6 +16,20 @@
   </nav>
 </header>
 
+<h1>イベント検索</h1>
+<%= search_form_for @p, url: reservations_search_path do |f| %>
+  <%= f.label :area_eq, '場所' %>
+  <%= f.collection_select :area_eq, @reservation_area, :area, :area, include_blank: '指定なし' %>
+  <br>
+  <%= f.label :level_eq, 'レベル' %>
+  <%= f.collection_select :level_eq, @reservation_level, :level, :level, include_blank: '指定なし' %>
+  <br>
+  <%= f.label :start_time_eq, '日時' %>
+  <%= f.collection_select :start_time_eq, @reservation_start_time, :start_time, :start_time, include_blank: '指定なし' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <h1>イベント一覧</h1>
 
 <table>

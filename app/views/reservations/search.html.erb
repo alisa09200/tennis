@@ -1,0 +1,19 @@
+<h1>
+  検索結果
+</h1>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.level %>
+      <%= result.start_time %>
+      <%= result.end_time %>
+      <%= result.city_id %>
+    </li>
+  <% end %>
+<% else %>
+  該当するイベントはありません
+<% end %>
+<br>
+<%= link_to 'カレンダーから予約する', reservations_path %>

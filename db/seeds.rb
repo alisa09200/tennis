@@ -1,7 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Reservation.create(start_time:'2021-04-25 08:00:00', end_time:'2021-04-25 10:00:00', min:'1', max:'8', text:'よろしく', level:'初級', area:'区営テニスコート', city_id:'2', user_id:"1")
+Reservation.create(start_time:'2021-04-26 09:00:00', end_time:'2021-04-26 11:00:00', min:'2', max:'12', text:'よろしく', level:'中級', area:'区営テニスコート', city_id:'3', user_id:"1")
+Reservation.create(start_time:'2021-04-27 12:00:00', end_time:'2021-04-27 14:00:00', min:'1', max:'8', text:'よろしく', level:'上級', area:'区営テニスコート', city_id:'4', user_id:"1")
+Reservation.create(start_time:'2021-04-28 13:00:00', end_time:'2021-04-28 15:00:00', min:'2', max:'4', text:'よろしく', level:'初級', area:'区営テニスコート', city_id:'5', user_id:"1")
+Reservation.create(start_time:'2021-04-01 14:00:00', end_time:'2021-04-01 16:00:00', min:'1', max:'8', text:'よろしく', level:'中級', area:'区営テニスコート', city_id:'6', user_id:"1")
+Reservation.create(start_time:'2021-04-02 15:00:00', end_time:'2021-04-02 17:00:00', min:'3', max:'6', text:'よろしく', level:'上級', area:'区営テニスコート', city_id:'7', user_id:"1")
+Reservation.create(start_time:'2021-04-03 16:00:00', end_time:'2021-04-03 18:00:00', min:'1', max:'8', text:'よろしく', level:'初級', area:'区営テニスコート', city_id:'8', user_id:"1")
+Reservation.create(start_time:'2021-04-04 17:00:00', end_time:'2021-04-04 19:00:00', min:'4', max:'12', text:'よろしく', level:'初級', area:'区営テニスコート', city_id:'9', user_id:"1")

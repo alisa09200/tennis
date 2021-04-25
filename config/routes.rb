@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'main/index'
   get 'explanations/index'
+  get 'reservations/search'
   root 'main#index'
   devise_for :users
   resources :reservations do
