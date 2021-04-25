@@ -50,6 +50,8 @@
     </div>
   </div>
 
+
+
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@reservation, @participant], local: true) do |form| %>
@@ -61,7 +63,7 @@
       </strong>
     <% end %>
     <div class="participants">
-      <h4 class="par">＜参加者一覧＞</h4>
+      <h4>＜参加者一覧＞</h4>
       <% @participants.each do |participant| %>
         <p>
           <strong><%= participant.user.nickname %>：<%= participant.text %></strong>
@@ -69,7 +71,6 @@
       <% end %>
     </div>
   </div>
-  
 
 
 
@@ -98,5 +99,6 @@
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+
 
 
