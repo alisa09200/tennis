@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-  
+
   get 'main/index'
   get 'explanations/index'
   get 'reservations/search'
   root 'main#index'
-  devise_for :users
+  #devise_for :users
   resources :reservations do
     resources :participants, only: :create
     resources :comments, only: :create

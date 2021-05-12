@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :participants
   def self.guest
     find_or_create_by(email: "test@com") do |user|
-      user.password = Rails.application.secrets.test_account_pass
+      user.password = 123456
     end
   end
 end
