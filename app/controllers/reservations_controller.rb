@@ -17,9 +17,9 @@ class ReservationsController < ApplicationController
   def show
     @participant = Participant.new
     #@participants = Participant.all
-    @participants = @reservation.participants.all
+    @participants = @reservation.participants.all.order("created_at DESC")
     @comment = Comment.new
-    @comments = @reservation.comments.all
+    @comments = @reservation.comments.all.order("created_at DESC")
   end
 
   # GET /reservations/new
