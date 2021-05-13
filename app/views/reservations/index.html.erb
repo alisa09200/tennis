@@ -16,7 +16,7 @@
   </nav>
 </header>
 
-<h1>イベント検索</h1>
+<div class="title">イベント検索</div>
 <%= search_form_for @p, url: reservations_search_path do |f| %>
   <%= f.label :area_eq, '場所' %>
   <%= f.collection_select :area_eq, @reservation_area, :area, :area, include_blank: '指定なし' %>
@@ -30,7 +30,7 @@
   <%= f.submit '検索' %>
 <% end %>
 
-<h1>イベント一覧</h1>
+<div class="title">イベント一覧</div>
 
 <table>
   <thead>
