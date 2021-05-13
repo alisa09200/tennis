@@ -1,5 +1,6 @@
+<div class="devise_img">
 <h1>
-  検索結果
+  <br>検索結果
 </h1>
 <% if @results.length !=0 %>
   <% @results.each do |result| %>
@@ -16,4 +17,7 @@
   該当するイベントはありません
 <% end %>
 <br>
-<%= link_to 'カレンダーから予約する', reservations_path %>
+<div class="search">
+  <%= link_to 'カレンダーから予約する', reservations_path %><br><br>
+</div>
+</div>
