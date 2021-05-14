@@ -89,55 +89,57 @@ Javascript/jQuery
 
 #### Association
 
-- has_many :tweets
 - has_many :comments
+- has_many :participants
 - has_many :reservations
+  
 
+### participants テーブル
 
-### tweets テーブル
-
-| Column  | Type     | Options      |
-| ------- | -------- | ------------ |
-| text    | string   | null: false  |
-| video   | string   | null: false  |
-| user_id | integer  | null: false  |
-| level   | string   | null: false  |
+| Column         | Type     | Options   |
+| -------------- | -------- | --------- |
+| text           | text     |           |
+| reservation_id | integer  |           |
+| user_id        | integer  |           |
 
 
 #### Association
 
+- belongs_to :reservation
 - belongs_to :user
-- has_many :comments
-- has_many :reservations
 
 
 ###  reservationsテーブル
 
 | Column     | Type       | Options   |
 | ---------- | ---------- | --------- |
-| content    | text       |           |
+| area       | text       |           |
 | start_time | datetime   |           |
 | end_time   | datetime   |           |
 | level      | string     |           |
 | user_id    | integer    |           |
-| tweet_id   | integer    |           |
-| schedule   | text       |           |
+| city_id    | integer    |           |
+| min        | integer    |           |
+| max        | integer    |           |
+| text       | text       |           |
 
 #### Association
 
+- has_many :participants
+- belongs_to :city
 - belongs_to :user
-- belongs_to :tweet
-
+- has_many :comments
+  
 
 ### comments テーブル
 
-| Column   | Type       | Options |
-| -------- | ---------- | ------- |
-| text     | text       |         |
-| user_id  | integer    |         |
-| tweet_id | integer    |         |
+| Column         | Type       | Options |
+| -------------- | ---------- | ------- |
+| text           | text       |         |
+| user_id        | integer    |         |
+| reservation_id | integer    |         |
 
 #### Association
 
-- belongs_to :tweet
+- belongs_to :reservation
 - belongs_to :user
